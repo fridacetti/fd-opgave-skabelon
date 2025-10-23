@@ -1,5 +1,8 @@
 ---
 import "@styles/main.css";
+import Header from "@components/Header.astro";
+import Footer from "@layouts/Footer.astro";
+import Newsletter from "@components/Newsletter.astro";
 ---
 
 <html lang="en">
@@ -7,6 +10,13 @@ import "@styles/main.css";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Shippori+Mincho&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Shippori+Mincho&display=swap" rel="stylesheet" />
+
     <meta name="generator" content={Astro.generator} />
     <title>DIN TITEL HER. MÅSKE SOM PROP?</title>
     <style is:inline>
@@ -14,8 +24,16 @@ import "@styles/main.css";
     </style>
   </head>
   <body>
-    <slot />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Newsletter />
   </body>
+  <Footer />
 </html>
 
-<style></style>
+<style>
+  @layer components {
+  }
+</style>

@@ -1,0 +1,130 @@
+---
+import Section from "@layouts/Section.astro";
+
+import ArrowR from "@icons/arrow--right.svg";
+import ArrowL from "@icons/arrow-left.svg";
+import financialData from "@data/financialProjections.json";
+import Text from "@layouts/Text.astro";
+import DynamicIcon from "@components/helpers/DynamicIcon.astro";
+---
+
+<Section background="tertiary-color">
+  <article class="intro">
+    <div class="text">
+      <Text title={financialData.title} desc={financialData.subtitle} />
+    </div>
+
+    <div class="arrows">
+      <a class="arrow prev"><ArrowL class="icon" /></a>
+      <a class="arrow next"><ArrowR class="icon" /></a>
+    </div>
+  </article>
+
+  <ul role="list" class="full-width">
+    {
+      financialData.values.map((item) => (
+        <li>
+          <DynamicIcon name={item.icon} width={35} height={35} />
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</Section>
+
+<style>
+  /* === INTRO GRID === */
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-block-start: 2rem;
+    gap: 2rem;
+    grid-column: content;
+  }
+
+  /* === PILE === */
+  .arrows {
+    display: flex;
+    gap: 10px;
+    place-self: end;
+    margin-bottom: 30px;
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .arrow:hover {
+    background: var(--accent-color);
+    color: var(--secondary-color);
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* === LISTE === */
+  ul {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-inline: max(1rem, 50% - 1200px / 2);
+    padding-block-end: 1rem;
+    grid-column: full;
+
+    li {
+      flex-basis: min(400px, 90%);
+      flex-shrink: 0;
+      background: #ebebeb;
+      border-radius: 8px;
+      padding: 2.75rem 2.1875rem;
+      align-self: start;
+      font-family: Lato;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 23.6px;
+      scroll-snap-align: center;
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    li h2 {
+      color: #181818;
+      font-family: Cabin;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 29px;
+      padding-block: var(--text-padding);
+      transition: color 0.3s ease;
+    }
+
+    li:hover {
+      background: #000;
+      color: #fff;
+
+      svg {
+        color: var(--accent-color);
+      }
+    }
+
+    li:hover h2,
+    li:hover p {
+      color: #fff;
+    }
+  }
+</style>

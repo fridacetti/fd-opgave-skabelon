@@ -1,0 +1,95 @@
+---
+import Section from "@layouts/Section.astro";
+import Text from "@layouts/Text.astro";
+import experience from "@data/experience.json";
+---
+
+<Section background="accent">
+  <div class="experience">
+    <Text eyebrow="Experience" title={experience.heading} desc={experience.subheading} />
+
+    <div class="stats">
+      {
+        experience.stats.map((stat) => (
+          <div class="stat" style={`--percent: ${stat.value};`}>
+            <span class="label">{stat.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Section>
+
+<style>
+  @layer components {
+    .experience {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .stats {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .stat {
+      position: relative; /* nødvendig for label-position */
+      --actualPercent: calc(var(--percent) * 1%);
+      --border-width: 5px;
+      aspect-ratio: 1;
+      border-radius: 130px;
+      border: var(--border-width) solid transparent;
+      background:
+        conic-gradient(#fbc336 0 0) padding-box,
+        conic-gradient(white var(--actualPercent), #daae3c 0%) border-box;
+
+      display: grid;
+      counter-reset: c var(--percent);
+
+      &::before,
+      &::after {
+        grid-area: 1 / 1;
+      }
+
+      &::after {
+        content: counter(c, decimal-leading-zero) "%";
+        place-self: center;
+        color: #181818;
+        font-family: Cabin;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+      }
+
+      &::before {
+        content: "";
+        aspect-ratio: 1;
+        border-radius: 99px;
+        width: 20px;
+        offset-path: border-box;
+        offset-distance: var(--actualPercent);
+        offset-anchor: 50% calc(50% - var(--border-width) / 2);
+        border: solid 3px var(--primary-color);
+        background: var(--secondary-color);
+      }
+
+      .label {
+        position: absolute;
+        bottom: -2.5rem; /* afstand under cirklen */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: max-content;
+        color: #181818;
+        font-family: Cabin;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 29px;
+      }
+    }
+  }
+</style>

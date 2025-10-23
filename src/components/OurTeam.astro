@@ -1,0 +1,9 @@
+---
+import DynamicImage from "@components/helpers/DynamicImage.astro";
+import employees from "@data/employees.json";
+import Section from "@layouts/Section.astro";
+---
+
+<Section>
+  {employees.map((employee) => <DynamicImage imagePath={employee.img} altText={employee.name} width={200} height={200} />)}
+</Section>

@@ -1,0 +1,50 @@
+---
+import HeroBgWrapper from "@components/helpers/HeroBgWrapper.astro";
+import Section from "@layouts/Section.astro";
+---
+
+<HeroBgWrapper imagePath="about.jpg" class="hero-bg">
+  <Section>
+    <div class="overlay">
+      <h4>About</h4>
+      <h1>Creative services for boost your business growth</h1>
+    </div>
+  </Section>
+</HeroBgWrapper>
+
+<style>
+  @layer components {
+    .overlay {
+      border-radius: 29px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(5.5px);
+      width: 630px;
+      padding: 21px;
+      grid-column: content;
+
+      h4 {
+        color: var(--secondary-color);
+        font-family: var(--text-font);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 23.6px;
+        letter-spacing: 2.32px;
+        text-transform: uppercase;
+        border-radius: 20px;
+        background: var(--accent-color);
+        width: 100px;
+        text-align: center;
+      }
+      h1 {
+        color: var(--secondary-color);
+        font-family: Cabin;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 58px;
+        text-transform: capitalize;
+      }
+    }
+  }
+</style>

@@ -1,1 +1,146 @@
 /* Globale styles her */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Headings */
+h1 {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: var(--str-5);
+  margin-block-end: var(--space-m);
+  color: var(--primary-color);
+}
+h2 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: var(--str-2);
+  margin-block: var(--space-s) 0;
+  color: var(--secondary-color);
+}
+h3 {
+  font-family: var(--text-font);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: var(--str-0);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-block: var(--space-xs) 0;
+  color: var(--secondary-color);
+}
+h4 {
+  font-family: var(--text-font);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: var(--str--1);
+  margin-block: var(--space-xs) 0;
+  color: var(--secondary-color);
+}
+
+/* Paragraphs */
+p {
+  font-family: var(--text-font);
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: var(--str-0);
+  color: var(--secondary-color);
+  margin-block-end: var(--space-s);
+  max-width: 60ch;
+}
+
+/* Links / buttons */
+button {
+  font-family: var(--text-font);
+  font-weight: 600;
+  line-height: 1.6;
+  text-decoration: none;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  display: inline-block;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+}
+button:hover {
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+}
+
+:root {
+  /* Font*/
+  --heading-font: "Cabin", sans-serif;
+  --text-font: "Lato", sans-serif;
+
+  /* Colors */
+  --primary-color: #fff;
+  --secondary-color: #181818;
+  --tertiary-color: #f5f5f5;
+  --quaternary-color: #ebebeb;
+  --accent-color: #ffcc4a;
+
+  /* margin */
+  --header-margin: 1.5rem;
+  --text-margin: 1.2rem;
+  --text-padding: 0.5rem;
+  --heading-padding: 1.2rem;
+}
+/* Utopia space scale */
+/* @link https://utopia.fyi/space/calculator?c=360,18,1.2,1200,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --space-2xs: clamp(0.5625rem, 0.5357rem + 0.119vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8482rem + 0.119vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0714rem + 0.2381vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6071rem + 0.3571vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.1429rem + 0.4762vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2143rem + 0.7143vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.2857rem + 0.9524vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4286rem + 1.4286vw, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.3125rem, 0.1786rem + 0.5952vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4018rem + 0.7143vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7143rem + 0.7143vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8036rem + 1.4286vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.3393rem + 1.5476vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.6071rem + 2.8571vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.6786rem + 3.0952vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.2143rem + 5.7143vw, 7.5rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1.125rem, 0.5357rem + 2.619vw, 2.5rem);
+}
+/* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --str--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
+  --str--1: clamp(0.9375rem, 0.9119rem + 0.1136vw, 1rem);
+  --str-0: clamp(1.125rem, 1.0739rem + 0.2273vw, 1.25rem);
+  --str-1: clamp(1.35rem, 1.2631rem + 0.3864vw, 1.5625rem);
+  --str-2: clamp(1.62rem, 1.4837rem + 0.6057vw, 1.9531rem);
+  --str-3: clamp(1.944rem, 1.7405rem + 0.9044vw, 2.4414rem);
+  --str-4: clamp(2.3328rem, 2.0387rem + 1.3072vw, 3.0518rem);
+  --str-5: clamp(2.7994rem, 2.384rem + 1.8461vw, 3.8147rem);
+}
+
+main {
+  display: grid;
+  grid-template-columns: subgrid;
+  > * {
+    grid-column: full;
+  }
+}
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns:
+    [full-start] 1fr [content-start] minmax(0, 600px) [hero-start] minmax(0, 600px)
+    [content-end] 1fr [ hero-end full-end];
+  align-items: start;
+  > * {
+    grid-column: full;
+  }
+}

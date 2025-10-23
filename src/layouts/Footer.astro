@@ -1,0 +1,26 @@
+---
+import Logo from "@components/Logo.astro";
+import Section from "@layouts/Section.astro";
+---
+
+<footer>
+  <Logo />
+  <p>©2025 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
+</footer>
+
+<style>
+  @layer components {
+    footer {
+      background: #181818;
+      padding: 46px 0;
+      text-align: center;
+
+      p {
+        color: #fff;
+        font-size: 16px;
+        border-top: solid #d9dbdd;
+        place-self: center;
+      }
+    }
+  }
+</style>

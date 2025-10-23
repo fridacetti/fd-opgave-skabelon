@@ -1,0 +1,31 @@
+---
+const { background } = Astro.props;
+---
+
+<section data-background={background}>
+  <slot />
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-template-columns: subgrid;
+      padding-block: 5rem;
+
+      > * {
+        grid-column: content;
+      }
+    }
+
+    [data-background="accent"] {
+      background: var(--accent-color);
+    }
+    [data-background="tertiary-color"] {
+      background: var(--tertiary-color);
+    }
+    [data-background="secondary"] {
+      background: var(--secondary-color);
+    }
+  }
+</style>

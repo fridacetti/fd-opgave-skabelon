@@ -1,8 +1,21 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/Hero.astro";
+import Img1 from "@assets/images/img1.jpg";
+import Expect from "@components/Expect.astro";
+import Financial from "@components/Financial.astro";
+import Experience from "@components/Experience.astro";
+import Growing from "@components/Growing.astro";
+import Contact from "@components/Contact.astro";
+
+// console.log(employees);
 ---
 
 <Layout>
   <Hero />
+  <Expect imgSrc={Img1} imgAlt="conversation" eyebrow="we'll work with you" title="What To Expect" desc="Our collaboration is built on transparency, efficiency, and measurable results. Together, we create strategies tailored to your unique needs and goals." list={["Collaborate to build actionable strategies that drive sustainable growth and deliver tangible outcomes.", "Identify opportunities to optimize processes and implement impactful solutions with measurable results."]} imageFirst={true} />
+  <Financial />
+  <Experience />
+  <Growing variant="dark" />
+  <Contact />
 </Layout>
